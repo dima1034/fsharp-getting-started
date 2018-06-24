@@ -7,4 +7,7 @@
     <Compile Include="Introduction.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FSharp.Charting" Version="0.91.1" />
+  </ItemGroup>
 </Project>
