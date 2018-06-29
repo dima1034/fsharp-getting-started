@@ -8,6 +8,7 @@
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="FParsec" Version="1.0.4-RC3" />
     <PackageReference Include="FSharp.Charting" Version="0.91.1" />
   </ItemGroup>
 </Project>

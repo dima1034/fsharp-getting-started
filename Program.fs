@@ -4,8 +4,11 @@ open System
 open Test.Introduction
 open Test
 open FSharp.Charting
+open FParsec 
 
- type Person = {
+type Point = { x: float; y: float } 
+
+type Person = {
     name: string;
     age: int
 } with member this.canDrive = this.age > 17
@@ -19,7 +22,8 @@ type Day =
     | Saturday
     
 type Workday = Rest | PersonPerDay of Day * Person
-    
+  
+type namedValue<'T> = { name: string; value: 'T }   
 
 [<EntryPoint>]
 let main argv =
@@ -89,11 +93,25 @@ let main argv =
     // records 
     { name = "Bob"; age = 55 }.canDrive |> printf "\n can drive = %A"
     
+        
+    let pl = 
+    //          1.2            ,              3.2
+        pipe3 pfloat (pchar ',' .>>. spaces) pfloat (fun x z y -> 
+            printf "\n %A - z" z
+            { x = x; y = y }) 
+    
+    run pl "1.2, 3.2, 1.2" |> printf "\n%A"
+    
+    let pl2 = 
+        sepBy pfloat (pchar ',' >>. spaces) 
+        
+    run pl2 "1.2, 3.2, 1.2" |> printf "\n%A"
     
     
     // descriminated unions
     let friday = Day.Friday
     
+    (run ((stringReturn "5") "hello world") "5hello    55") |> printf "\n%A"
     
     let getDayNumber (day: Day) = 
         match day with
@@ -101,6 +119,17 @@ let main argv =
         |   _ -> printfn "\n any other day"
     
     getDayNumber Day.Friday
+    
+    // equality 
+    // primitives, list, arrays, tupels, records and DU have structural equality
+    // object equality use referntial equality
+    
+    
+    
+    
+    // requireQualifiedAccess attribute
+    // this modules cannot be open.
+    // Function in module may be accessed only directly List.<FunctionName>
     
     0 // return an integer exit code
     
