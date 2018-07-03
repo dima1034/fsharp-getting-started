@@ -5,6 +5,8 @@ open Test.Introduction
 open Test
 open FSharp.Charting
 open FParsec 
+open System.IO
+
 
 type Point = { x: float; y: float } 
 
@@ -123,6 +125,47 @@ let main argv =
     // equality 
     // primitives, list, arrays, tupels, records and DU have structural equality
     // object equality use referntial equality
+    
+    let s = new System.Exception()
+    
+    let ss = s :? System.DivideByZeroException
+    
+    let ss2 = s :? Exception
+    
+    
+    let s2 s =
+        printf "%A" s
+    
+    let readAFile ()= 
+        use reader = new StreamReader(
+                        __SOURCE_DIRECTORY__ + "\\text.txt")
+        reader.ReadToEnd()
+        
+    readAFile() |> printf "%A" 
+//    let result: byref<float> = byref<float>()
+    
+    let ( isOk, value ) = Double.TryParse("123")  
+    
+    
+    let firstOdd cs = 
+        List.tryPick (fun x -> Some x) cs
+        
+    firstOdd [2;3;5;7] |> printf "%A"
+    
+    let toNumber opt: option<'a> = 
+        let s: option<'a> = Option.bind (fun x -> Some x) opt
+        let s2: option<'a> = Option.bind (fun x -> None) s 
+        let s3: option<'a> = Option.bind (fun x -> None) s2  
+        Option.bind (fun x -> None) s3
+        
+    Some 5 
+    |> toNumber
+    |> function 
+        | Some v -> v
+        | None -> 0
+    |> printf "\n%A" 
+    |> Console.WriteLine 
+    
     
     
     
