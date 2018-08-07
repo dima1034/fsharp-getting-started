@@ -4,15 +4,17 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Introduction.fs" />
+    <Compile Include="Module.fs" />
+    <Compile Include="Enum.fs" />
+    <Compile Include="Record.fs" />
+    <Compile Include="Tuple.fs" />
+    <Compile Include="Abbrev.fs" />
+    <Compile Include="DU.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FParsec" Version="1.0.4-RC3" />
     <PackageReference Include="FSharp.Charting" Version="0.91.1" />
     <PackageReference Include="NUnit" Version="3.10.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="text.txt" />
   </ItemGroup>
 </Project>

@@ -22,6 +22,11 @@ type Day =
     | Wednesday
     | Friday
     | Saturday
+     
+    
+//type ResrvationInstruciotns<'a> = 
+//    | IsReservationInFuture of (Day * (bool -> 'a))  
+//    | ReadReservation of (DateTimeOffset * (Reservation list -> 'a))
     
 type Workday = Rest | PersonPerDay of Day * Person
   
@@ -113,6 +118,8 @@ let main argv =
     // descriminated unions
     let friday = Day.Friday
     
+//    stringReturn parses the string str and returns str. 
+//    It is an atomic parser: either it succeeds or it fails without consuming any input.
     (run ((stringReturn "5") "hello world") "5hello    55") |> printf "\n%A"
     
     let getDayNumber (day: Day) = 
@@ -165,6 +172,13 @@ let main argv =
         | None -> 0
     |> printf "\n%A" 
     |> Console.WriteLine 
+    
+    
+    
+    
+    
+    
+    
     
     
     
