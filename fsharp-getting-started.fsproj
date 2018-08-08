@@ -10,11 +10,18 @@
     <Compile Include="Tuple.fs" />
     <Compile Include="Abbrev.fs" />
     <Compile Include="DU.fs" />
+    <Compile Include="Recursive.fs" />
+    <Compile Include="ArrListSeq.fs" />
+    <Compile Include="Option.fs" />
+    <Compile Include="Choise.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FParsec" Version="1.0.4-RC3" />
     <PackageReference Include="FSharp.Charting" Version="0.91.1" />
     <PackageReference Include="NUnit" Version="3.10.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="text.txt" />
   </ItemGroup>
 </Project>

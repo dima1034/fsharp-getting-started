@@ -1,11 +1,15 @@
 ﻿// Learn more about F# at http://fsharp.org
 
 open System
-open Test.Introduction
-open Test
+open TestModule
 open FSharp.Charting
 open FParsec 
 open System.IO
+open Rec
+open DU
+open MyChoise
+open record
+open MyOption
 
 
 type Point = { x: float; y: float } 
@@ -176,13 +180,45 @@ let main argv =
     
     
     
+    // run DU module
+    
+
+    runDU
+    
+    let s _val: int = _val 
+    let s33 _val val2_ = _val * val2_
+    let s2 _val _val2 = _val2 + _val
+    let s3 (_val: int) = s    // int -> int -> int
+    let s4 s = s(10): int     // (int -> int) -> int
+    let s44 (l: int) = s33    // int -> int -> int -> int
+    let s444 s = s            // (int -> int) -> (int -> int)
+    let s4442 (l: int) (s:(int -> int)) = l  // int -> (int -> int) -> int
+    let s3arg (l: int) (m: int) = m
+    let s5 s3arg = 10        // (int -> int -> int) -> int
+    
+    s5 s3arg |> ignore
+
+    let r1 = s2 10 10
+    let r2 = s3 |> printf "\n%A"
+
+    let r3 = s4 (fun (l: int) -> l: int) 
+       
+    s44 10 |> ignore 
+    s444 (fun (l: int) -> l: int) |> ignore 
+    s4442 10 (fun (l: int) -> l: int) |> ignore
     
     
     
+    evaluate "5" |> ignore
+    evaluate "foo" |> ignore
+    match evaluateMyChoice 10 0 with 
+        | Choice1Of2 ex -> printf "\nsome error"
+        | Choice2Of2 num -> printf "\n%A" num
     
-    
-    
-    
+    match evaluateMyChoice 10 10 with 
+        | Choice1Of2 ex -> printf "\nsome error"
+        | Choice2Of2 num -> printf "\n%A" num
+        
     
     // requireQualifiedAccess attribute
     // this modules cannot be open.
