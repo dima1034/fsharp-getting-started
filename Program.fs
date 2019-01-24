@@ -10,7 +10,9 @@ open DU
 open MyChoise
 open record
 open MyOption
-
+open FSharp.Data
+open Exceptions
+open CSharpInterop
 
 type Point = { x: float; y: float } 
 
@@ -135,7 +137,7 @@ let main argv =
     
     // equality 
     // primitives, list, arrays, tupels, records and DU have structural equality
-    // object equality use referntial equality
+    // object equality use referential equality
     
     let s = new System.Exception()
     
@@ -149,7 +151,7 @@ let main argv =
     
     let readAFile ()= 
         use reader = new StreamReader(
-                        __SOURCE_DIRECTORY__ + "\\text.txt")
+                        __SOURCE_DIRECTORY__ + "/text.txt")
         reader.ReadToEnd()
         
     readAFile() |> printf "%A" 
@@ -211,14 +213,24 @@ let main argv =
     
     evaluate "5" |> ignore
     evaluate "foo" |> ignore
-    match evaluateMyChoice 10 0 with 
-        | Choice1Of2 ex -> printf "\nsome error"
-        | Choice2Of2 num -> printf "\n%A" num
+//    
+//    match evaluateMyChoice 10 0 with 
+//        | Choice1Of2 ex -> printf "\nsome error"
+//        | Choice2Of2 num -> printf "\n%A" num
+//    
+//    match evaluateMyChoice 10 10 with 
+//        | Choice1Of2 ex -> printf "\nsome error"
+//        | Choice2Of2 num -> printf "\n%A" num
+//
+
+    someFunctionWhichFails
+    someFunctionWhichFails2
     
-    match evaluateMyChoice 10 10 with 
-        | Choice1Of2 ex -> printf "\nsome error"
-        | Choice2Of2 num -> printf "\n%A" num
-        
+    let consumer = new Consumer()
+    consumer.number |> printf "\n%A" 
+    consumer.number |> printf "\n%A" 
+    consumer.number |> printf "\n%A" 
+    consumer.number |> printf "\n%A" 
     
     // requireQualifiedAccess attribute
     // this modules cannot be open.

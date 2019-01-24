@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fsharp-getting-started", "fsharp-getting-started.fsproj", "{94F9D873-9192-4B69-B2B2-0BFBA5134B37}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpLibrary", "CSharpLibrary\CSharpLibrary.csproj", "{0846F29E-F10B-40F7-9159-707D54274DF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{94F9D873-9192-4B69-B2B2-0BFBA5134B37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94F9D873-9192-4B69-B2B2-0BFBA5134B37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94F9D873-9192-4B69-B2B2-0BFBA5134B37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0846F29E-F10B-40F7-9159-707D54274DF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0846F29E-F10B-40F7-9159-707D54274DF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0846F29E-F10B-40F7-9159-707D54274DF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0846F29E-F10B-40F7-9159-707D54274DF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
