@@ -1,4 +1,5 @@
-module MyOption
+
+module AdvancedTypes.MyOption 
 open System
 
 let binder = (fun i -> 
@@ -23,6 +24,7 @@ let twoNumbersAndSquare optn =
        else None)) 
    (*(option:*) optn
     |> Option.bind (fun n -> n * n |> Some)
+    |> Option.bind (fun n -> if (n / 100.) = 1. then Some n else None)
     
     // bind only applies if it is actually has value (means if Some came up on input)
     // if option is None bind does not executes
@@ -30,8 +32,8 @@ let twoNumbersAndSquare optn =
     
 let print o = 
     match o with 
-        | Some v -> sprintf "%A" v
-        | None -> "None"
+        | Some v -> sprintf "\n%A" v
+        | None -> "\nNOTHING"
         
         
 let evaluate s = Some s |> twoNumbersAndSquare |> print |> Console.WriteLine

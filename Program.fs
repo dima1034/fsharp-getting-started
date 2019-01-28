@@ -7,12 +7,13 @@ open FParsec
 open System.IO
 open Rec
 open DU
-open MyChoise
 open record
-open MyOption
 open FSharp.Data
 open Exceptions
 open CSharpInterop
+open AdvancedTypes.MyOption
+open AdvancedTypes.MyChoise
+open AdvancedTypes.Sequences
 
 type Point = { x: float; y: float } 
 
@@ -28,7 +29,15 @@ type Day =
     | Wednesday
     | Friday
     | Saturday
-     
+
+// the different variation of the same type to be declared
+type 'a Stack =
+    | EmptyStack
+    | StackNode of 'a * 'a Stack
+    
+type Stack2<'a> =
+    | EmptyStack
+    | StackNode of 'a * 'a Stack2      
     
 //type ResrvationInstruciotns<'a> = 
 //    | IsReservationInFuture of (Day * (bool -> 'a))  
@@ -211,9 +220,20 @@ let main argv =
     
     
     
+    
+    
+    
     evaluate "5" |> ignore
+    evaluate "10" |> ignore
     evaluate "foo" |> ignore
-//    
+
+    evaluateMyChoice 10. 2.
+    evaluateMyChoice 10. 0.
+
+
+
+
+    
 //    match evaluateMyChoice 10 0 with 
 //        | Choice1Of2 ex -> printf "\nsome error"
 //        | Choice2Of2 num -> printf "\n%A" num
@@ -221,7 +241,10 @@ let main argv =
 //    match evaluateMyChoice 10 10 with 
 //        | Choice1Of2 ex -> printf "\nsome error"
 //        | Choice2Of2 num -> printf "\n%A" num
-//
+
+    
+    
+    
 
     someFunctionWhichFails
     someFunctionWhichFails2
@@ -230,11 +253,20 @@ let main argv =
     consumer.number |> printf "\n%A" 
     consumer.number |> printf "\n%A" 
     consumer.number |> printf "\n%A" 
-    consumer.number |> printf "\n%A" 
+    consumer.number |> printf "\n%A"
+    
+    parseDouble()
+    parseDouble2()
+    patMatFuncCall()
+    
+    
+    runSeq()
     
     // requireQualifiedAccess attribute
     // this modules cannot be open.
     // Function in module may be accessed only directly List.<FunctionName>
+
+       
     
     0 // return an integer exit code
     

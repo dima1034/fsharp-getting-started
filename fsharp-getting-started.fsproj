@@ -12,13 +12,10 @@
     <Compile Include="DU.fs" />
     <Compile Include="Recursive.fs" />
     <Compile Include="ArrListSeq.fs" />
-    <Compile Include="Option.fs" />
-    <Compile Include="Choise.fs" />
     <Compile Include="Exceptions.fs" />
     <Compile Include="DisposableComponents.fs" />
     <Compile Include="PatternMatching.fs" />
     <Compile Include="CSharpInterop.fs" />
-    <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FParsec" Version="1.0.4-RC3" />
@@ -31,5 +28,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="CSharpLibrary\CSharpLibrary.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+      <Compile Include="AdvancedTypes\Choise.fs" />
+      <Compile Include="AdvancedTypes\Option.fs" />
+      <Compile Include="AdvancedTypes\Sequences.fs" />
+      <Compile Include="Program.fs" />
   </ItemGroup>
 </Project>
